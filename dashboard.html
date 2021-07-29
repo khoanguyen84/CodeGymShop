@@ -16,6 +16,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="icon" href="dist/img/AdminLTELogo.png">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css"/>
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -130,7 +131,7 @@
             </div>
           </div>
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover table-bordered text-nowrap table-product">
+            <table class="table table-hover table-bordered table-striped text-nowrap table-product">
               <thead class="thead-dark">
                 <tr>
                   <th>ID</th>
@@ -178,6 +179,7 @@
             <div class="form-group">
               <label>Product name</label>
               <input type="text" name="productname" class="form-control" data-rule-required="true" data-msg-required="The product name is required.">
+              <input type="hidden" name="productId" value="0">
             </div>
             <div class="form-group">
               <label>Manufactory</label>
@@ -222,7 +224,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
