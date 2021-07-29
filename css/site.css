@@ -2,3 +2,12 @@
     color:#dc3545 !important;
     font-weight: unset !important;
 }
+
+.bootbox .modal-header h4 {
+    float: none;
+}
+  
+.bootbox .modal-header .close {
+    position: absolute;
+    right: 15px;
+}

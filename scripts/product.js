@@ -29,11 +29,8 @@ product.productList = function(){
                             <a href='javascript:;' class='btn btn-success btn-sm'>
                                 <i class='fa fa-pencil-alt'></i>
                             </a>
-                            ${
-                                item.status ? 
-                                    "<a href='javascript:;' class='btn btn-warning btn-sm'><i class='fa fa-trash'></i></a>" : 
-                                    "<a href='javascript:;' class='btn btn-secondary btn-sm'><i class='fa fa-trash-restore'></i></a>"
-                            }
+                            <a href='javascript:;' class='btn ${item.status ? "btn-warning" : "btn-secondary"} btn-sm' 
+                                onclick='product.confirmChangeStatus(${item.id}, ${item.status})'><i class='fa ${item.status ? "fa-trash" : "fa-trash-restore"}'></i></a>
                         </td>
                     </tr>
                     `);
@@ -69,6 +66,7 @@ product.save = function(){
                     $.notify("Product has been create success", "success");
                 }
                 else{
+                    $.notify(`Something went wrong, please try again.`, "eror");
                 }
             }
         })
@@ -79,10 +77,53 @@ product.reset = function(){
     $('#productForm').validate().resetForm();
 }
 
+product.confirmChangeStatus = function(productId, status){
+    bootbox.confirm({
+        title: "Change product status?",
+        message: `Do you want to ${status ? "inactive" : "active"} the product now?.`,
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Cancel'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Confirm'
+            }
+        },
+        callback: function (result) {
+            if(result){
+                product.changeStatus(productId, status);
+            }
+        }
+    });
+}
+
+product.changeStatus = function(producId, status){
+    let updateObj = {};
+    updateObj.status = !status;
+    $.ajax({
+        url:`https://6100c20bbca46600171cf995.mockapi.io/product/${producId}`,
+        method: "PUT",
+        contentType:"application/json",
+        datatype :"json",
+        data: JSON.stringify(updateObj),
+        success: function(result){
+            if(result){
+                product.productList();
+                $.notify(`Product has been ${status ? 'inactive' : 'active'} success`, "success");
+            }
+            else{
+                $.notify(`Something went wrong, please try again.`, "eror");
+            }
+        }
+    })
+}
+
 product.init = function(){
     product.productList();
 }
 
+
 $(document).ready(function(){
     product.init();
 });
+
