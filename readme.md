@@ -8,3 +8,5 @@
     4.2 jquery validation unobtrusive
     4.3 data-rule attribute (https://johnnycode.com/2014/03/27/using-jquery-validate-plugin-html5-data-attribute-rules/)
 5. Hiển thị thông báo sau khi hoàn thành một việc gì đó (https://notifyjs.jpillora.com/)
+6. Sử dụng bootbox để confirm (http://bootboxjs.com/getting-started.html)
+7. Pagination sử dụng datatables (https://datatables.net/)
